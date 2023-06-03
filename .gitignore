@@ -1,4 +1,8 @@
 *.exe
 *.o
+*.save
+FirstSDL.*
+!FirstSDL.cbp*
 /bin
 /obj
+
