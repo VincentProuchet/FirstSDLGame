@@ -8,8 +8,8 @@ class Colors
     public:
         /** Default constructor */
         Colors();
-        Colors(unsigned int &r, unsigned int &g , unsigned int &b);
-        Colors(unsigned int &r, unsigned int &g , unsigned int &b,unsigned int &a);
+        Colors(unsigned int r, unsigned int g , unsigned int b);
+        Colors(unsigned int r, unsigned int g , unsigned int b,unsigned int a);
         /** Default destructor */
         virtual ~Colors();
 

@@ -11,7 +11,15 @@ int main( int argc, char * argv[] )
     {
         SDL sdl( SDL_INIT_VIDEO | SDL_INIT_TIMER );
         sdl.draw();
-
+        SDL_Event e;
+        bool quit = false;
+        while(!quit){
+            while(SDL_PollEvent(&e) ){
+                if(e.type== SDL_QUIT){
+                    quit = true;
+                }
+            }
+        }
         return 0;
     }
     catch ( const InitError & err )

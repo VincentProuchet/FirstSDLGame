@@ -23,8 +23,8 @@ class SDL
         /** delay for rendering close */
         int pauseTimer = 1500;
         /** SDL pointers */
-        SDL_Window * m_window; //!< Member variable "m_window"
-        SDL_Renderer * m_renderer;//!< Member variable "m_renderer"
+        SDL_Window * m_window = nullptr; //!< Member variable "m_window"
+        SDL_Renderer * m_renderer = nullptr;//!< Member variable "m_renderer"
 };
 
 #endif // SDL_H

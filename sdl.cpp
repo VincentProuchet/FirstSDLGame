@@ -1,4 +1,5 @@
 #include "sdl.h"
+#include <colors.h>
 
 SDL::SDL( Uint32 flags )
 {
@@ -26,14 +27,25 @@ void SDL::draw()
     // Show the window
     SDL_RenderPresent( this->m_renderer );
 
-    int rgb[] = { 203, 203, 203, // Gray
-                  254, 254,  31, // Yellow
-                    0, 255, 255, // Cyan
-                    0, 254,  30, // Green
-                  255,  16, 253, // Magenta
-                  253,   3,   2, // Red
-                   18,  14, 252, // Blue
-                    0,   0,   0  // Black
+    int rgb[] = {
+                203, 203, 203, // Gray
+                254, 254,  31, // Yellow
+                  0, 255, 255, // Cyan
+                  0, 254,  30, // Green
+                255,  16, 253, // Magenta
+                253,   3,   2, // Red
+                 18,  14, 252, // Blue
+                  0,   0,   0,  // Black
+                };
+    Colors * crgb[] = {
+                  new Colors(0,   0,   0),  // Black
+                  new Colors(203, 203, 203), // Gray
+                  new Colors(254, 254,  31), // Yellow
+                  new Colors(0, 255, 255), // Cyan
+                  new Colors(0, 254,  30), // Green
+                  new Colors(255,  16, 253), // Magenta
+                  new Colors(253,   3,   2), // Red
+                  new Colors(18,  14, 252), // Blue
                 };
     int rgb_size = (sizeof(rgb)/sizeof(*rgb)/3);
     SDL_Rect colorBar;
@@ -50,5 +62,14 @@ void SDL::draw()
         SDL_RenderFillRect( m_renderer, &colorBar );
         SDL_RenderPresent( m_renderer );
     }
-        SDL_Delay( this->pauseTimer );
+    colorBar.x = 0;
+    colorBar.h = this->window_height/2;
+    for (int i=0;i != sizeof crgb / sizeof *crgb;i++,colorBar.x += colorBar.w)
+    {
+        SDL_SetRenderDrawColor( m_renderer, crgb[i]->Getred(), crgb[i]->Getgreen(), crgb[i]->Getblue(), crgb[i]->Getalpha() );
+        SDL_RenderFillRect( m_renderer, &colorBar );
+        SDL_RenderPresent( m_renderer );
+        crgb[i]->~Colors();
+    }
+
 }
