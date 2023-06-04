@@ -7,23 +7,41 @@
 
 int main( int argc, char * argv[] )
 {
-    try
-    {
+    bool quit = false;
+    try {
         SDL sdl( SDL_INIT_VIDEO | SDL_INIT_TIMER );
         sdl.draw();
         SDL_Event e;
-        bool quit = false;
-        while(!quit){
-            while(SDL_PollEvent(&e) ){
-                if(e.type== SDL_QUIT){
+
+        // main loop
+        while(!quit) {
+            while(SDL_PollEvent(&e) ) {
+                    // quit can be an SDL event
+                switch (e.quit.type) {
+                case SDL_QUIT:
                     quit = true;
+                    std::cout   << "quitting program"
+                                << std::endl;
+                    break;
+
+                default:
+                    break;
                 }
+                // this is ghow you get keys in switch
+                switch (e.key.keysym.sym) {
+                case SDLK_SPACE:
+                    sdl.draw();
+                    break;
+                default:
+                    break;
+                }
+
             }
+
         }
         return 0;
     }
-    catch ( const InitError & err )
-    {
+    catch ( const InitError & err ) {
         std::cerr << "Error while initializing SDL:  "
                   << err.what()
                   << std::endl;

@@ -48,6 +48,7 @@ void SDL::draw()
                   new Colors(18,  14, 252), // Blue
                 };
     int rgb_size = (sizeof(rgb)/sizeof(*rgb)/3);
+    // its divided by 3 because there is 3 components per color
     SDL_Rect colorBar;
     colorBar.x = 0;
     colorBar.y = 0;
@@ -56,6 +57,7 @@ void SDL::draw()
     colorBar.h = this->window_height;
 
     // Render all color bar then wait for .5 seconds
+    // note the second increment in the for signature
     for ( int i = 0; i != sizeof rgb / sizeof *rgb; i += 3, colorBar.x += colorBar.w )
     {
         SDL_SetRenderDrawColor( m_renderer, rgb[i], rgb[i + 1], rgb[i + 2], 255 );
