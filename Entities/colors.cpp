@@ -18,7 +18,6 @@ Colors::Colors(unsigned int r, unsigned int g , unsigned int b, unsigned int a)
 
 Colors::~Colors()
 {
-    //dtor
 }
 
 void Colors::SetValues(unsigned int &r, unsigned int &g , unsigned int &b)

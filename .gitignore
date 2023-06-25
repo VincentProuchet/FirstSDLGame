@@ -1,6 +1,7 @@
 *.exe
 *.o
 *.save
+/Textures
 FirstSDL.*
 !FirstSDL.cbp*
 /bin

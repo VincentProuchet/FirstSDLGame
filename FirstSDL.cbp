@@ -16,6 +16,7 @@
 					<Add option="-g" />
 					<Add directory="Exceptions" />
 					<Add directory="Entities" />
+					<Add directory="Controls" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -27,6 +28,8 @@
 					<Add option="-O2" />
 					<Add directory="Exceptions" />
 					<Add directory="Entities" />
+					<Add directory="Controls" />
+					<Add directory="./" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -50,13 +53,23 @@
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
 		</ExtraCommands>
+		<Unit filename="Controls/userinputcontrols.cpp" />
+		<Unit filename="Controls/userinputcontrols.h" />
 		<Unit filename="Entities/colors.cpp" />
 		<Unit filename="Entities/colors.h" />
+		<Unit filename="Entities/controlableobject.cpp" />
+		<Unit filename="Entities/controlableobject.h" />
+		<Unit filename="Entities/gameobject.cpp" />
+		<Unit filename="Entities/gameobject.h" />
+		<Unit filename="Entities/mobilegameobject.cpp" />
+		<Unit filename="Entities/mobilegameobject.h" />
+		<Unit filename="Entities/spaceship.cpp" />
+		<Unit filename="Entities/spaceship.h" />
 		<Unit filename="Exceptions/initerror.cpp" />
 		<Unit filename="Exceptions/initerror.h" />
+		<Unit filename="enginesdl.cpp" />
+		<Unit filename="enginesdl.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="sdl.cpp" />
-		<Unit filename="sdl.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

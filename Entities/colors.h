@@ -2,7 +2,9 @@
 #ifndef COLORS_H
 #define COLORS_H
 
-
+/**
+    Classe représentant les couleurs
+*/
 class Colors
 {
     public:
@@ -56,6 +58,7 @@ class Colors
         unsigned int red = 0; //!< Member variable "red"
         unsigned int green = 0 ; //!< Member variable "green"
         unsigned int blue = 0; //!< Member variable "blue"
+        /** transparence */
         unsigned int alpha = 255; //!< Member variable "alpha"
 };
 

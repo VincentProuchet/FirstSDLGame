@@ -1,24 +1,30 @@
-#include "sdl.h"
+#include "enginesdl.h"
 #include <colors.h>
 
-SDL::SDL( Uint32 flags )
+EngineSDL::EngineSDL( Uint32 f )
 {
-    if ( SDL_Init( flags ) != 0 )
+    this->flags = f;
+    if ( SDL_Init( this->flags ) != 0 )
         throw InitError();
 
-    if ( SDL_CreateWindowAndRenderer( this->window_width, this->window_height, SDL_WINDOW_SHOWN,
+    if ( SDL_CreateWindowAndRenderer( this->window_width, this->window_height,
+                                     SDL_WINDOW_SHOWN,
                                       &m_window, &m_renderer ) != 0 )
         throw InitError();
 }
 
-SDL::~SDL()
+EngineSDL::~EngineSDL()
 {
     SDL_DestroyWindow( this->m_window );
     SDL_DestroyRenderer( this->m_renderer );
     SDL_Quit();
 }
 
-void SDL::draw()
+
+void EngineSDL::draw(){
+
+}
+void EngineSDL::drawColorBar()
 {
     // Clear the window with a black background
     SDL_SetRenderDrawColor( this->m_renderer, 0, 0, 0, 255 );
@@ -73,5 +79,7 @@ void SDL::draw()
         SDL_RenderPresent( m_renderer );
         crgb[i]->~Colors();
     }
-
 }
+
+
+
