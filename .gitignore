@@ -1,6 +1,8 @@
 *.exe
 *.o
 *.save
+*.bkp
+*.dtmp
 /Textures
 FirstSDL.*
 !FirstSDL.cbp*
