@@ -33,8 +33,17 @@ class MobileGameObject : virtual GameObject
         void SetmaxSpeed(unsigned int val) { maxSpeed = val; }
 
     protected:
-
-        unsigned int maxSpeed = 0; //!< Member variable "maxSpeed"
+        /**
+            vitesse maximale de l'objet
+            Ouais je sais ça n'as pas de sens dans la réalité
+            mais là c'est juste un petit jeu
+        */
+        unsigned int maxSpeed = 0;
+        /**
+            accélération de l'objet
+            Oui il faudrais utiliser un vecteur
+            ou au moins trois point de l'espace pour en faire le calcul
+         */
         int acceleration = 0 ;
 
     private:

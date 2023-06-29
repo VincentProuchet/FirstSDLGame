@@ -9,8 +9,6 @@
  dans l'espace tridimenssionnel
  ainsi qu'une orientation par axe.
 
-
-
 */
 class GameObject
 {
@@ -72,12 +70,19 @@ class GameObject
         bool GetVisible(){return this->visible;}
 
     protected:
-        int pos_X = 0; //!< Member variable "pos_X"
-        int pos_Y = 0; //!< Member variable "pos_Y"
-        int pos_Z = 0; //!< Member variable "pos_Z"
-        int rot_X = 0; //!< Member variable "rot_X"
-        int rot_Y = 0; //!< Member variable "rot_Y"
-        int rot_Z = 0; //!< Member variable "rot_Z"
+        /** @todo remplacer les trois variables de position par un vecteur */
+        int pos_X = 0;
+        int pos_Y = 0;
+        int pos_Z = 0;
+        /**  */
+        int rot_X = 0;
+        int rot_Y = 0;
+        int rot_Z = 0;
+        /**
+            détermine si l'objet est affiché ou non par le programme
+            celà sert pour les outils de développement lorsque l'ont place
+            des objet n'ayant pas de rendu
+        */
         bool visible = true;
 
 

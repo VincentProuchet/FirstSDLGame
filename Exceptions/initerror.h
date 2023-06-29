@@ -7,9 +7,9 @@
 #include <SDL2/SDL.h>
 
 /**
- Error for initialisation process
- those error are suposed to be displayed in OS windows
- or/and logged to errors logs
+ Erreur pour le processus d'initialisation de l'application
+ ces erreurs sont censées être affichable par l'OS
+ et/ou mis dans un log
 
 */
 class InitError : public std::exception
@@ -28,7 +28,7 @@ class InitError : public std::exception
 
     private:
         /** message */
-        std::string msg; //!< Member variable "msg"
+        std::string msg;
 };
 
 #endif // INITERROR_H

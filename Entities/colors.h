@@ -55,11 +55,12 @@ class Colors
     protected:
 
     private:
-        unsigned int red = 0; //!< Member variable "red"
-        unsigned int green = 0 ; //!< Member variable "green"
-        unsigned int blue = 0; //!< Member variable "blue"
+
+        unsigned int red = 0;
+        unsigned int green = 0;
+        unsigned int blue = 0;
         /** transparence */
-        unsigned int alpha = 255; //!< Member variable "alpha"
+        unsigned int alpha = 255;
 };
 
 #endif // COLORS_H

@@ -5,11 +5,11 @@
 #include "controlableobject.h"
 #include "../enginesdl.h"
 /**
+
         Classe de de gestion des entrées utilisateur
 
         en l'état elle se repose sur la compatibilité des objets via la
         classe de base ControlableObject qui sert d'interface.
-
 */
 class UserInputControls
 {
