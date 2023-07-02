@@ -2,10 +2,10 @@
 
 GameObject::GameObject()
 {
-    //ctor
+	//ctor
 }
 
 GameObject::~GameObject()
 {
-    //dtor
+	//dtor
 }

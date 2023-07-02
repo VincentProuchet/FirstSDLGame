@@ -11,28 +11,39 @@
 int main( int argc, char * argv[] )
 {
 
-    bool quit = false;
-    try {
-        EngineSDL sdl( SDL_INIT_VIDEO | SDL_INIT_TIMER );
-        sdl.drawColorBar();
-        ControlableObject* player = new SpaceShip();
-        UserInputControls controls = UserInputControls(player);
+	bool quit = false;
+	try {
+		EngineSDL sdl( SDL_INIT_VIDEO | SDL_INIT_TIMER );
+		sdl.draw();
+		SpaceShip player = SpaceShip();
+		player.loadTexture(sdl.getRenderer(),"./textures/vaisseau.png");
+		UserInputControls controls = UserInputControls(&player);
+		sdl.render2D(player);
+		sdl.present();
 
-        // main loop
-        while(!quit) {
-            quit = controls.ProcessInputs();
-        }
-        controls.~UserInputControls();
-        delete player;
-        sdl.~EngineSDL();
+		// main loop
+		while(!quit) {
+			quit = controls.ProcessInputs();
+			sdl.draw();
+			sdl.render2D(player);
+			sdl.present();
 
-        return 0;
-    }
-    catch ( const InitError & err ) {
-        std::cerr << "Error while initializing SDL:  "
-                  << err.what()
-                  << std::endl;
-    }
+		}
+		SDL_Delay(sdl.getDelay());
+		controls.~UserInputControls();
+		player.~SpaceShip();
+		sdl.~EngineSDL();
 
-    return 1;
+		return 0;
+	}
+	catch ( const RuntimeException & err ) {
+		std::cerr << " runtime exception "
+		          << err.Getmessage()
+		          << std::endl;
+		SDL_Delay(5000);
+
+
+	}
+
+	return 1;
 }

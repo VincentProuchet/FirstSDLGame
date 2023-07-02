@@ -2,31 +2,31 @@
 #include <iostream>
 SpaceShip::SpaceShip()
 {
-    //ctor
+	//ctor
 }
 
 SpaceShip::~SpaceShip()
 {
-    //dtor
+	//dtor
 }
 void SpaceShip::moveDown()
 {
-    std::cout << "down" << std::endl;
+	std::cout << "down" << std::endl;
 }
 void SpaceShip::moveUp()
 {
-std::cout << "up" << std::endl;
+	std::cout << "up" << std::endl;
 }
 
 void SpaceShip::moveLeft()
 {
-std::cout << "left" << std::endl;
+	std::cout << "left" << std::endl;
 }
 void SpaceShip::moveRight()
 {
-std::cout << "right" << std::endl;
+	std::cout << "right" << std::endl;
 }
 void SpaceShip::shoot()
 {
-std::cout << "firing" << std::endl;
+	std::cout << "firing" << std::endl;
 }

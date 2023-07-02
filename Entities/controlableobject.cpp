@@ -2,12 +2,12 @@
 
 ControlableObject::ControlableObject()
 {
-    //ctor
+	//ctor
 }
 
 ControlableObject::~ControlableObject()
 {
-    //dtor
+	//dtor
 }
 
 void ControlableObject::moveUp() {}

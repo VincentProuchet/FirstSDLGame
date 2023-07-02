@@ -14,18 +14,20 @@ int main( int argc, char * argv[] )
     bool quit = false;
     try {
         EngineSDL sdl( SDL_INIT_VIDEO | SDL_INIT_TIMER );
-        sdl.drawColorBar();
-        ControlableObject* player = new SpaceShip();
-        UserInputControls controls = UserInputControls(player);
-
+        sdl.draw();
+        SpaceShip player = SpaceShip();
+        player.loadTexture(sdl.getRenderer() ,"./textures/default_cube.png");
+        UserInputControls controls = UserInputControls(&player);
+        sdl.render2D(player);
         // main loop
         while(!quit) {
             quit = controls.ProcessInputs();
         }
-        delete controls;
-        delete player;
-        delete sdl;
-        
+        SDL_Delay(sdl.getDelay());
+        controls.~UserInputControls();
+        player.~SpaceShip();
+        sdl.~EngineSDL();
+
         return 0;
     }
     catch ( const InitError & err ) {

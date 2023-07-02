@@ -1,22 +1,13 @@
 #include "initerror.h"
+#include <SDL2/SDL.h>
 
 InitError::InitError():
-    exception(),
-    msg( SDL_GetError() )
-{
-    //ctor
-}
+	RuntimeException( SDL_GetError() )
+{}
 InitError::InitError( const std::string & m ) :
-    exception(),
-    msg( m )
-{
-}
+	RuntimeException(m)
+{}
 
 InitError::~InitError()throw()
-{
-    //dtor
-}
-const char * InitError::what() const throw()
-{
-    return msg.c_str();
-}
+{}
+

@@ -2,10 +2,10 @@
 
 MobileGameObject::MobileGameObject()
 {
-    //ctor
+	//ctor
 }
 
 MobileGameObject::~MobileGameObject()
 {
-    //dtor
+	//dtor
 }
